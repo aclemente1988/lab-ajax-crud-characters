@@ -4,22 +4,29 @@ class APIHandler {
   }
 
   getFullList () {
-
+    return this.BASE_URL.get('/characters')
   }
 
-  getOneRegister () {
-
+  getOneRegister (characterId) {
+    return this.BASE_URL.get(`/characters/${characterId}`)
   }
 
-  createOneRegister () {
-
+  createOneRegister ({ name: string, occupation: string, cartoon: boolean, weapon: string }) {
+    return this.BASE_URL.post('/characters', { name: string, occupation: string, cartoon: boolean, weapon: string })
   }
 
-  updateOneRegister () {
-
+  updateOneRegister (characterId, { name: string, occupation: string, cartoon: boolean, weapon: string }) {
+    return this.BASE_URL.put(`/characters/${characterId}`, { name: string, occupation: string, cartoon: boolean, weapon: string })
   }
 
-  deleteOneRegister () {
-
+  deleteOneRegister (characterId) {
+    return this.BASE_URL.delete(`/characters/${characterId}`)
   }
 }
+
+
+
+
+module.exports = APIHandler;
+
+
