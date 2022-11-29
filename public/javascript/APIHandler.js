@@ -1,3 +1,5 @@
+
+
 class APIHandler {
   constructor (baseUrl) {
     this.BASE_URL = baseUrl;
@@ -11,12 +13,12 @@ class APIHandler {
     return this.BASE_URL.get(`/characters/${characterId}`)
   }
 
-  createOneRegister ({ name: string, occupation: string, cartoon: boolean, weapon: string }) {
-    return this.BASE_URL.post('/characters', { name: string, occupation: string, cartoon: boolean, weapon: string })
+  createOneRegister ({characterInfo }) {
+    return this.BASE_URL.post('/characters', { characterInfo })
   }
 
-  updateOneRegister (characterId, { name: string, occupation: string, cartoon: boolean, weapon: string }) {
-    return this.BASE_URL.put(`/characters/${characterId}`, { name: string, occupation: string, cartoon: boolean, weapon: string })
+  updateOneRegister (characterId, { characterInfo }) {
+    return this.BASE_URL.put(`/characters/${characterId}`, { characterInfo})
   }
 
   deleteOneRegister (characterId) {
@@ -27,6 +29,5 @@ class APIHandler {
 
 
 
-module.exports = APIHandler;
 
 
